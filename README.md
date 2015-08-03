@@ -20,5 +20,5 @@ Future Stuff:
 - What direction was the train traveling?
 
 
-Contact me on twitter, @jimmysthoughts for questions.
+Contact me on twitter, [@jimmysthoughts](https://twitter.com/jimmysthoughts) for questions.
 Feel free to submit a PR.
