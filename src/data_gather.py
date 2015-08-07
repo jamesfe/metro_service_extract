@@ -27,10 +27,10 @@ def gather_dated_links():
 
     links = in_soup.findAll('a')
 
-    for link in links:
-        if 'href' in link.attrs and link.attrs['href'].find(REPORT_LINK_SIGNATURE) > -1:
-            ret_vals.append(DatedLink(pagelink=link.attrs['href'],
-                                      datetext=link.text,
+    for html_link in links:
+        if 'href' in html_link.attrs and html_link.attrs['href'].find(REPORT_LINK_SIGNATURE) > -1:
+            ret_vals.append(DatedLink(pagelink=html_link.attrs['href'],
+                                      datetext=html_link.text,
                                       report_base=REPORT_BASE))
     return ret_vals
 
@@ -39,20 +39,13 @@ if __name__ == "__main__":
     out_data = []
     report_page_links = gather_dated_links()
 
-    for link in report_page_links:
-        print link
+    for link in report_page_links[0:10]:
+        print(link)
         for item in link.parse_page():
             cline = ServiceMessage(item, parent=link.make_parent())
             full_data = cline.extract_full_data()
             full_data['event_dtg'] = full_data['event_dtg'].isoformat()
             out_data.append(full_data)
-    out_file = file('out.json', 'w')
+    out_file = open('out.json', 'w')
     out_file.write(json.dumps(out_data))
     out_file.close()
-
-
-    # test_page = DatedLink('viewPage_update.cfm?ReportID=2119', 'May 25, 2012')
-    # for item in test_page.parse_page():
-    #     message = ServiceMessage(item)
-    #     print message.extract_full_data()
-    # import pdb; pdb.set_trace()
