@@ -38,6 +38,7 @@ class ServiceMessage(object):
         ret_dict['id'] = self.parent['page_id'] + "_" + self.scrunchtime()
         ret_dict['event_dtg'] = event_date
         ret_dict['proc_text'] = self.pre_processed_text
+        ret_dict['colors'] = self.extract_color_reference()
         return ret_dict
 
     def scrunchtime(self):
@@ -60,7 +61,7 @@ class ServiceMessage(object):
                 ret_vals['min'] = int(time_text.groups()[1])
                 return ret_vals
             except Exception as e:
-                print "Exception: ", e
+                print("Exception: ", e)
                 return None
         return time_text
 
@@ -87,6 +88,18 @@ class ServiceMessage(object):
             return {'minutes': int(num_minutes.groups()[0])}
         else:
             return None
+
+    def extract_color_reference(self):
+        line_colors = ['red', 'orange', 'blue', 'green', 'yellow', 'silver']
+        ret_colors = []
+        bad_stations = ['greenbelt', 'green belt', 'silver spring', 'greensboro']
+        colorless_text = self.pre_processed_text
+        for station in bad_stations:
+            colorless_text = colorless_text.replace(station, '')
+        for color in line_colors:
+            if colorless_text.find(color) > -1:
+                ret_colors.append(color)
+        return ret_colors
 
     def extract_expressed_value(self):
         if self.pre_processed_text.find('expressed') > -1:
