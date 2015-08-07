@@ -23,7 +23,7 @@ Future Stuff:
 Sample Data
 -----------
 ```json
-{
+[{
 proc_text: "4:38 p.m. a shady grove-bound red line train at cleveland park was offloaded due to a door problem. passengers experienced a 10-minute delay.",
 expressed: false,
 id: "3292_16_38",
@@ -59,7 +59,7 @@ colors: [
 "green"
 ],
 event_dtg: "2015-08-06T08:10:00"
-},
+}]
 ```
 
 Contact me on twitter, [@jimmysthoughts](https://twitter.com/jimmysthoughts) for questions.
