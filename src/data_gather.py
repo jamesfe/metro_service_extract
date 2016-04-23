@@ -39,7 +39,7 @@ if __name__ == "__main__":
     out_data = []
     report_page_links = gather_dated_links()
 
-    for link in report_page_links[0:10]:
+    for link in report_page_links:
         print(link)
         for item in link.parse_page():
             cline = ServiceMessage(item, parent=link.make_parent())

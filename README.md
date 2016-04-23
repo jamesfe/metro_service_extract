@@ -24,7 +24,7 @@ Sample Data
 -----------
 ```json
 {
-proc_text: "4:38 p.m. a shady grove-bound red line train at cleveland park was offloaded due to a door problem. passengers experienced a 10-minute delay.",
+"proc_text": "4:38 p.m. a shady grove-bound red line train at cleveland park was offloaded due to a door problem. passengers experienced a 10-minute delay.",
 expressed: false,
 id: "3292_16_38",
 gap: null,
@@ -37,7 +37,7 @@ colors: [
 event_dtg: "2015-08-06T16:38:00"
 },
 {
-proc_text: "5:55 a.m. a largo town center-bound blue line train at king street did not operate, resulting in an 8-minute gap in service.",
+"proc_text": "5:55 a.m. a largo town center-bound blue line train at king street did not operate, resulting in an 8-minute gap in service.",
 expressed: false,
 id: "3292_5_55",
 gap: {
@@ -50,7 +50,7 @@ colors: [
 event_dtg: "2015-08-06T05:55:00"
 },
 {
-proc_text: "8:10 a.m. a branch avenue-bound green line train at suitland was expressed for schedule adherence/improved train spacing.",
+"proc_text": "8:10 a.m. a branch avenue-bound green line train at suitland was expressed for schedule adherence/improved train spacing.",
 expressed: true,
 id: "3292_8_10",
 gap: null,
